@@ -1,0 +1,35 @@
+{
+  "env": {
+    "node": true
+  },
+  "extends": [
+    "prettier",
+    "eslint:recommended"
+  ],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "parserOptions": {
+    "ecmaVersion": 2018
+  },
+  "plugins": [
+    "prettier"
+  ],
+  "rules": {
+    "nuxt/no-cjs-in-config": "off",
+    "space-before-function-paren": "off",
+    "max-len": [
+      "warn",
+      140,
+      2,
+      {
+        "ignoreUrls": true,
+        "ignoreComments": false,
+        "ignoreRegExpLiterals": true,
+        "ignoreStrings": false,
+        "ignoreTemplateLiterals": false
+      }
+    ]
+  }
+}
