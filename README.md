@@ -44,6 +44,6 @@ src/
     config/         Server and database configurations
     helpers/        Helper methods for repeated procedures
     middlewares/    Middleware routes
-    models/         App models
-    resolvers/      Database queries etc.
-    routes/         Create your routes and param validations here
+    models/         Application models
+    services/       Application Services
+    controllers/    Create your Controllers and route validations here
