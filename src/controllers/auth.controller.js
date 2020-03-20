@@ -1,8 +1,8 @@
 const router = require('express').Router()
 const validate = require('validate.js')
-const { getUserToken } = require('../resolvers/userResolver')
+const { UserService } = require('../services')
 
-router.post('/login', async function (req, res) {
+router.post('/login', async function(req, res) {
 	// Validate Request
 	const constraints = {
 		username: {
@@ -19,7 +19,7 @@ router.post('/login', async function (req, res) {
 	let username = req.body.username
 	let password = req.body.password
 
-	await getUserToken(res, username, password)
+	await UserService.getUserToken(res, username, password)
 })
 
 module.exports = router

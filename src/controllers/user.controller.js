@@ -1,9 +1,9 @@
 const router = require('express').Router()
 const validate = require('validate.js')
-const UserModel = require('../models/UserModel')
-const { checkDuplicate, createUser } = require('../resolvers/userResolver')
+const { UserModel } = require('../models')
+const { UserService } = require('../services')
 
-router.post('/create-account', async function (req, res) {
+router.post('/create-account', async function(req, res) {
 	// Validate Request
 	const constraints = {
 		username: {
@@ -30,8 +30,8 @@ router.post('/create-account', async function (req, res) {
 	if (v) return res.status(400).json(v)
 
 	const user = new UserModel(req.body)
-	await checkDuplicate(res, user)
-	await createUser(res, user)
+	await UserService.checkDuplicate(res, user)
+	await UserService.createUser(res, user)
 })
 
 module.exports = router

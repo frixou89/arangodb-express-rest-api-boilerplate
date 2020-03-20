@@ -1,9 +1,8 @@
 const express = require('express')
 const app = express()
 const helmet = require('helmet')
-// Routers
-const userRoutes = require('../routes/userRoutes')
-const authRoutes = require('../routes/authRoutes')
+// Routes
+const { AuthController, UserController } = require('../controllers')
 
 app.use(express.json())
 
@@ -12,7 +11,7 @@ app.disable('x-powered-by')
 app.use(helmet())
 
 // Routes
-app.use('/user', userRoutes)
-app.use('/auth', authRoutes)
+app.use('/auth', AuthController)
+app.use('/user', UserController)
 
 module.exports = app

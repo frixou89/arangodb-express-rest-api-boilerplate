@@ -1,16 +1,18 @@
-const BaseModel = require('./BaseModel')
+const BaseModel = require('./base.model')
 
 class UserModel extends BaseModel {
-	constructor (props) {
+	constructor(props) {
 		super()
 		this.username = props.username
 		this.password = props.password
 		this.email = props.email
 	}
 
-	get collectionName () {
+	get collectionName() {
 		return 'User'
 	}
 }
 
-module.exports = UserModel
+module.exports = {
+	UserModel
+}
